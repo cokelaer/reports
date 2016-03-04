@@ -1,0 +1,4 @@
+include README.rst setup.cfg
+recursive-include share *
+recursive-include doc *
+
