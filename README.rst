@@ -17,7 +17,7 @@ Here is an example that creates an empty report::
     r.create_report(onweb=True)
 
 The next step is for you to copy the templates in a new directory, edit them
-and fill the :attr:`jinja` attribute to fulfil your needs::
+and fill the *jinja* attribute to fulfil your needs::
 
     from report import Report
     r = Report("myreport_templates")
