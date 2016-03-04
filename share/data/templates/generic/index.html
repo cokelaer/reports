@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="contents local topic" id="contents">
+        <ul class="simple">
+            <li> 1 - <a class="reference internal" href="#Summary" id="id1">
+                Summary</a></li>
+            <li> 2 - <a class="reference internal" href="#Dependencies"
+                id="id11">Dependencies</a> </li>
+        </ul>
+    </div>
+
+
+    <div class="section" id="Summary">
+    <h2> 1 -  <a class="toc-backref" href="#id1">Summary</a></h2>
+    {{ summary }}
+    </div>
+
+
+
+    <div class="section" id="Dependencies">
+        <h2> 2 - <a class="toc-backref" href="#id11">Dependencies</a></h2>
+
+        <p> Tables are sortable: You can click on a field in the header of the table: </p>
+        {{ dependencies }}
+    </div>
+
+
+
+{% endblock %}

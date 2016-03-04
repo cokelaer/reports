@@ -46,7 +46,7 @@ setup(
     maintainer_email = metainfo['authors']['main'][1],
     author           = metainfo['authors']['main'][0],
     author_email     = metainfo['authors']['main'][1],
-    long_description = open("README.txt").read(),
+    long_description = open("README.rst").read(),
     keywords         = metainfo['keywords'],
     description      = metainfo['description'],
     license          = metainfo['license'],
@@ -59,7 +59,7 @@ setup(
     package_dir = {'':'src'},
     packages = ["report"],
 
-    install_requires = [],
+    install_requires = ["easydev", "pandas", "colormap"],
 
     # uncomment if you have share/data files
     #data_files = datafiles,

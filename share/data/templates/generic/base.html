@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Generic report</title>
+    <link rel="stylesheet" href="css/report.css" type="text/css" />
+    <script src="js/sorttable.js"></script>
+
+    <!-- Include required JS files -->
+    <link rel="stylesheet" href="css/github-gist.css">
+    <script src="js/highlight.pack.js"></script>
+   <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<div class="document" id="unset">
+<h1 class="title">{{ title }}</h1>
+    <h2 class="subtitle">Report created with report (version {{ report_version }})</h2>
+    <hr>
+    <p>Example of a header</p>
+    <hr>
+
+      {% block content %}{% endblock %}
+
+      <hr/>
+
+    <div class="footer">
+       <div class="logo">
+            <!-- put some images here -->
+            <!-- <img src= ./images/sanger-logo.png  title=sanger-logo alt="sanger"/> -->
+       </div>
+       
+      <div class="copyright">
+          {{ time_now }}
+           Please visit <a href="http://report.readthedocs.org">online</a>
+           documentation for details. 
+       </div>
+   </div>
+</div>
+</body>
+</html>
