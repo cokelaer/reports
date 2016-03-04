@@ -30,8 +30,8 @@ __all__ = ['Report']
 def _get_report_version():
     # cannot use from report import version since it imports the module (not the
     # package) due to identical name. Hopefully, easydev does help:        
-    deps = easydev.get_dependencies('report')
-    index = [x.project_name for x in deps].index('report')
+    deps = easydev.get_dependencies('reports')
+    index = [x.project_name for x in deps].index('reports')
     return deps[index].version
 
 
@@ -100,7 +100,7 @@ class Report(object):
         # For jinja2 inheritance, we need to use the environment
         # to indicate where are the parents' templates
         if template_path  == "generic":
-            share_path = easydev.get_shared_directory_path('report')
+            share_path = easydev.get_shared_directory_path('reports')
             self.template_path = os.sep.join([share_path, 'data', 
                 'templates', "generic"])
         else:
@@ -161,7 +161,7 @@ class Report(object):
         except Exception:
             pass
         finally:
-            temp_path = easydev.get_shared_directory_path("report")
+            temp_path = easydev.get_shared_directory_path("reports")
 
             filenames = glob.glob(self.template_path + os.sep + "*css")
             filenames += glob.glob(os.sep.join([temp_path, "data", "css", "*css"]))
@@ -173,7 +173,7 @@ class Report(object):
             for filename in ['sorttable.js', 'highlight.pack.js']:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
-                    filename = easydev.get_share_file("report", "data",
+                    filename = easydev.get_share_file("reports", "data",
                         filename)
                     shutil.copy(filename, target)
 
@@ -216,7 +216,7 @@ class Report(object):
         pkg_resource module.
 
         """
-        dependencies = easydev.get_dependencies("report")
+        dependencies = easydev.get_dependencies("reports")
         # TODO: Could re-use new method in HTMLTable for adding href
         # but needs some extra work in the add_href method.
         names = [x.project_name for x in dependencies]

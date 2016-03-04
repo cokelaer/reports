@@ -4,3 +4,7 @@ try:
     version = pkg_resources.require("report")[0].version
 except:
     version = __version__
+
+
+from .report import Report
+from .htmltable import HTMLTable

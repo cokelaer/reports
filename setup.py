@@ -34,11 +34,6 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
-# files in share/data
-datadir = os.path.join('share','data')
-datafiles = [(datadir, [f for f in glob.glob(os.path.join(datadir, '*'))])]
-
-
 setup(
     name             = "reports",
     version          = version,
@@ -57,12 +52,11 @@ setup(
 
     # package installation
     package_dir = {'':'src'},
-    packages = ["report"],
+    packages = ["reports"],
 
     install_requires = ["easydev", "pandas", "colormap"],
 
     # uncomment if you have share/data files
-    #data_files = datafiles,
 
     #use_2to3 = True, # causes issue with nosetests
 )
