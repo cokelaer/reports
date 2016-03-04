@@ -12,14 +12,14 @@ version              = '%d.%d.%d' % (_MAJOR, _MINOR, _MICRO)
 release              = '%d.%d' % (_MAJOR, _MINOR)
 
 metainfo = {
-    'authors': {"main": ("yourname", "email@whatever.org")},
+    'authors': {"main": ("Thomas Cokelaer", "cokelaer@gmail.com")},
     'version': version,
     'license' : 'GPL',
     'download_url' : ['http://pypi.python.org/pypi/report'],
     'url' : ["http://pythonhosted.org/report/"],
-    'description': "Put a short description here" ,
+    'description': "A simple HTML report builder based on jinja" ,
     'platforms' : ['Linux', 'Unix', 'MacOsX', 'Windows'],
-    'keywords' : [''],
+    'keywords' : ['HTML', 'table', 'jinja', 'report'],
     'classifiers' : [
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
