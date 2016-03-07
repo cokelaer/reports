@@ -1,13 +1,11 @@
 from reports import HTMLTable
-
+import pandas as pd
 
 
 
 def test_htmltable():
 
-    import pandas as pd
     df = pd.DataFrame({'A':[1,2,10], 'B':[1,10,2]})
-    from reports import HTMLTable
     table = HTMLTable(df)
 
 

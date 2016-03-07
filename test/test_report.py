@@ -1,4 +1,4 @@
-from reports import report
+from reports import Report
 from easydev import TempFile
 import os
 
@@ -13,7 +13,7 @@ class Test_report():
             pass
 
     def test(self):
-        r = report.Report()
+        r = Report()
         r.create_report(onweb=False)
 
         # test setter
@@ -30,7 +30,7 @@ class Test_report():
         with open(temp_filename, "w") as fin:
             fin.write("{{ test }}")
         try:
-            r = report.Report(".", template_filename=temp_filename)
+            r = Report(".", template_filename=temp_filename)
             r.jinja['test'] = 'youpi'
             r.create_report(onweb=False)
             with open("report/index.html", "r") as fin:

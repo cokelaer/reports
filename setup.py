@@ -50,6 +50,8 @@ setup(
     download_url     = metainfo['download_url'],
     classifiers      = metainfo['classifiers'],
 
+    zip_safe=False,
+
     # package installation
     package_dir = {'':'src'},
     packages = ["reports"],
