@@ -29,7 +29,7 @@ __all__ = ['Report']
 
 def _get_report_version():
     # cannot use from report import version since it imports the module (not the
-    # package) due to identical name. Hopefully, easydev does help:        
+    # package) due to identical name. Hopefully, easydev does help:
     deps = easydev.get_dependencies('reports')
     index = [x.project_name for x in deps].index('reports')
     return deps[index].version
