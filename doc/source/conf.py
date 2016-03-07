@@ -19,12 +19,6 @@ import sys, os
 
 pkg_name = "reports"
 
-# This is for ReadTheDoc
-import matplotlib
-matplotlib.use('Agg')
-
-
-
 import pkg_resources
 version = pkg_resources.require(pkg_name)[0].version
 release = version
