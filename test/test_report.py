@@ -7,15 +7,14 @@ class Test_report():
 
     def teardown(self):
         import shutil
-        shutil.rmtree("report")
+        try:
+            shutil.rmtree("report")
+        except:
+            pass
 
     def test(self):
         r = report.Report()
-        try:   
-            # may not work on travis 
-            r.create_report(onweb=True)
-        except:
-            pass
+        r.create_report(onweb=False)
 
         # test setter
         r.filename = "index.html"
