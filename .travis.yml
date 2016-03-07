@@ -31,6 +31,7 @@ install:
 
 # # command to run tests, e.g. python setup.py test
 script:
+  - python setup.py install
   - python setup.py nosetests --with-coverage --cover-package reports
 
 after_success:
