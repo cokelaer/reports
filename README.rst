@@ -6,13 +6,13 @@ REPORTS
 
 .. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
 
-.. image::
-   https://coveralls.io/repos/reports/badge.png?branch=master
-   :target: https://coveralls.io/r/reports?branch=master
+
+.. image:: https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
+    :target: https://coveralls.io/github/cokelaer/reports?branch=master 
 
 .. image:: http://readthedocs.org/projects/reports/badge/?version=latest
-      :target: http://reports.readthedocs.org/en/latest/?badge=latest
-   :alt: Documentation Status
+    :target: http://reports.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
 
 :Python version: Python 2.7, 3.4 and 3.5
 :Online documentation: `On readthedocs <http://reports.readthedocs.org/>`_
