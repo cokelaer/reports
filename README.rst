@@ -4,8 +4,7 @@ REPORTS
 .. image:: https://badge.fury.io/py/reports.svg
        :target: https://pypi.python.org/pypi/reports
 
-.. image:: https://secure.travis-ci.org/reports.png
-       :target: http://travis-ci.org/reports
+.. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
 
 .. image::
    https://coveralls.io/repos/reports/badge.png?branch=master

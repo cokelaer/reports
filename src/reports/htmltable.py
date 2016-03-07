@@ -102,6 +102,7 @@ class HTMLTable(object):
         # get back to default options
         for k, v in _buffer.items():
             pd.set_option(k, v)
+
         if len(self.df) > 20 and collapse_table is True:
             return '<div class="table_outer">' + table+"</div>"
         else:
