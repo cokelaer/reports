@@ -34,6 +34,11 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
+datadir = os.path.join('share','data')
+datafiles = [(d, [os.path.join(d,f) for f in files])
+    for d, folders, files in os.walk(datadir)]
+
+
 setup(
     name             = "reports",
     version          = version,
@@ -55,6 +60,7 @@ setup(
     # package installation
     package_dir = {'':'src'},
     packages = ["reports"],
+    data_files = datafiles,
 
     install_requires = ["easydev", "pandas", "colormap", "jinja2"],
 
