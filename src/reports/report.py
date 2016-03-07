@@ -70,6 +70,9 @@ class Report(object):
                 template_filename='index.html', css_path="generic"):
         """.. rubric:: Constructor
 
+
+        :param template_path: where to find the templates. If not provided, uses
+            the generic version
         :param filename: default to **index.html**
         :param directory: defaults to **report**
         :param overwrite: default to True
@@ -83,7 +86,7 @@ class Report(object):
         a template directory should contain a set of jinja files including
         *template_filename*. 
         """
-
+        self.verbose = verbose
         self._directory = directory
         self._filename = filename
 
@@ -150,7 +153,8 @@ class Report(object):
 
         try:
             if os.path.isdir(self.directory) is False:
-                print("Created directory {}".format(self.directory))
+                if self.verbose:
+                    print("Created directory {}".format(self.directory))
                 os.mkdir(self.directory)
             # list of directories created in the constructor
             for this in self._to_create:
@@ -176,7 +180,6 @@ class Report(object):
                     filename = easydev.get_share_file("reports", "data",
                         filename)
                     shutil.copy(filename, target)
-
 
     def to_html(self):
         self.jinja['time_now'] = self.get_time_now()

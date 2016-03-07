@@ -7,7 +7,7 @@ import glob
 
 _MAJOR               = 0
 _MINOR               = 0
-_MICRO               = 1
+_MICRO               = 2
 version              = '%d.%d.%d' % (_MAJOR, _MINOR, _MICRO)
 release              = '%d.%d' % (_MAJOR, _MINOR)
 
@@ -54,7 +54,7 @@ setup(
     package_dir = {'':'src'},
     packages = ["reports"],
 
-    install_requires = ["easydev", "pandas", "colormap"],
+    install_requires = ["easydev", "pandas", "colormap", "jinja2"],
 
     # uncomment if you have share/data files
 

@@ -1,3 +1,6 @@
+"""Reports package
+
+"""
 __version__ = "$Rev: 10 $"
 import pkg_resources
 try:
