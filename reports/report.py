@@ -61,7 +61,6 @@ class Report(object):
         r.jinja["section1"] = "<h1></h1>" 
         r.create_report() 
 
-
     """
 
     def __init__(self,
@@ -71,13 +70,13 @@ class Report(object):
                  overwrite=True,
                  verbose=True,
                  template_filename='index.html',
-                 css_path="generic"):
+                 extra_css_list=[]):
         """.. rubric:: Constructor
 
 
         :param template_path: where to find the templates. If not provided, uses
             the generic version
-        :param filename: default to **index.html**
+        :param filename: output filename (default to **index.html**)
         :param directory: defaults to **report**
         :param overwrite: default to True
         :param verbose: default to True
@@ -93,9 +92,9 @@ class Report(object):
         self.verbose = verbose
         self._directory = directory
         self._filename = filename
+        self.extra_css_list = extra_css_list
 
-        # This contains the sections and their names when
-        # method add_section is used
+        # This contains the sections and their names
         self.sections = []
         self.section_names = []
 
@@ -110,24 +109,29 @@ class Report(object):
             thispath += os.sep + "resources"
             self.template_path = os.sep.join([thispath, 'templates', "generic"])
         else:
+            # path to the template provided by the user 
             self.template_path = template_path
 
+        # The JINJA environment
+        # TODO check that the path exists
         self.env = Environment()
-        print(self.template_path)
         self.env.loader = FileSystemLoader(self.template_path)
 
-        # use template provided inside gdsctools
+        # input template file 
         self.template = self.env.get_template(template_filename)
 
+        # This dictionary will be used to populate the JINJA template
         self.jinja = {
-                'time_now': self.get_time_now(),
-                "title": "Title to be defined",
-                'dependencies': self.get_table_dependencies().to_html(),
-                "report_version": _get_report_version()
-                }
+            'time_now': self.get_time_now(),
+            "title": "Title to be defined",
+            'dependencies': self.get_table_dependencies().to_html(),
+            "report_version": _get_report_version()
+        }
 
+        # Directories to create 
         self._to_create = ['images', 'css', 'js',]
 
+        # Create directories and stored csss/js/images
         self._init_report()
 
     def _get_filename(self):
@@ -153,8 +157,9 @@ class Report(object):
         """create the report directory and return the directory name"""
         self.sections = []
         self.section_names = []
-        # if the directory already exists, print a warning
 
+
+        # if the directory already exists, print a warning
         try:
             if os.path.isdir(self.directory) is False:
                 if self.verbose:
@@ -169,16 +174,24 @@ class Report(object):
         except Exception:
             pass
         finally:
+            # Once the main directory is created, copy files required
             temp_path = easydev.get_package_location("reports")
             temp_path += os.sep + "reports" + os.sep + "resources"
 
+            # and the CSS to be found in the template_path where to find the
+            # JINJA files
             filenames = glob.glob(self.template_path + os.sep + "*css")
+            # Copy the CSS from reports/resources/css
             filenames += glob.glob(os.sep.join([temp_path, "css", "*css"]))
+            # In addition, the user may also provide his own CSS as a list
+            filenames += self.extra_css_list
 
             for filename in filenames:
                 target = os.sep.join([self.directory, 'css' ])
                 if os.path.isfile(target) is False:
                     shutil.copy(filename, target)
+
+            # We copy all javascript from reports resources
             for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:

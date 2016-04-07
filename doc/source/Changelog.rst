@@ -1,6 +1,11 @@
 changelog
 ===============
 
+:version 0.1.3:
+
+* change css_path into   extra_css_list parameter
+
+
 :version 0.1.2:
 
 * refactoring: moved ./src/reports into ./reports and mv ./share into ./reports
