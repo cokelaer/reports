@@ -174,7 +174,7 @@ class Report(object):
                 target = os.sep.join([self.directory, 'css' ])
                 if os.path.isfile(target) is False:
                     shutil.copy(filename, target)
-            for filename in ['sorttable.js', 'highlight.pack.js']:
+            for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
                     filename = easydev.get_share_file("reports", "data",
