@@ -3,6 +3,28 @@ Reports documentation
 
 |version|, |today|
 
+.. image:: https://badge.fury.io/py/reports.svg
+          :target: https://pypi.python.org/pypi/reports
+
+.. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
+
+
+.. image::
+   https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
+    :target: https://coveralls.io/github/cokelaer/reports?branch=master 
+
+.. image:: http://readthedocs.org/projects/reports/badge/?version=latest
+       :target: http://reports.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
+
+:Python version: Python 2.7, 3.4 and 3.5
+:Online documentation: `On readthedocs <http://reports.readthedocs.org/>`_
+:Issues and bug reports: `On github
+<https://github.com/cokelaer/reports/issues>`_
+
+
+
+
 
 Reports is a  simple Python package that provides tools to create HTML
 documents. It is based on a set of JINJA templates and a class called
