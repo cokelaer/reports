@@ -34,7 +34,7 @@ Example
 Here is a simple example that creates an empty report based on the **generic**
 templates provided::
 
-    from report import Report
+    from reports import Report
     r = Report()
     r.create_report(onweb=True)
 
