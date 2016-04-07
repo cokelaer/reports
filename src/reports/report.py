@@ -177,8 +177,7 @@ class Report(object):
             for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
-                    filename = easydev.get_share_file("reports", "data",
-                        filename)
+                    filename = easydev.get_share_file("reports", "data/javascript", filename)
                     shutil.copy(filename, target)
 
     def to_html(self):
