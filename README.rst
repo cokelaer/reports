@@ -2,10 +2,10 @@ REPORTS
 =========
 
 .. image:: https://badge.fury.io/py/reports.svg
-       :target: https://pypi.python.org/pypi/reports
+    :target: https://pypi.python.org/pypi/reports
 
 .. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
-
+    :target: https://travis-ci.org/sequana/sequana
 
 .. image:: https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
     :target: https://coveralls.io/github/cokelaer/reports?branch=master 

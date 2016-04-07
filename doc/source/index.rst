@@ -4,17 +4,16 @@ Reports documentation
 |version|, |today|
 
 .. image:: https://badge.fury.io/py/reports.svg
-          :target: https://pypi.python.org/pypi/reports
+    :target: https://pypi.python.org/pypi/reports
 
 .. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
+    :target: https://travis-ci.org/sequana/sequana
 
-
-.. image::
-   https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
+.. image::  https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
     :target: https://coveralls.io/github/cokelaer/reports?branch=master 
 
 .. image:: http://readthedocs.org/projects/reports/badge/?version=latest
-       :target: http://reports.readthedocs.org/en/latest/?badge=latest
+    :target: http://reports.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
 :Python version: Python 2.7, 3.4 and 3.5
