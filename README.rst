@@ -5,7 +5,7 @@ REPORTS
     :target: https://pypi.python.org/pypi/reports
 
 .. image:: https://travis-ci.org/cokelaer/reports.svg?branch=master
-    :target: https://travis-ci.org/sequana/sequana
+    :target: https://travis-ci.org/cokelaer/reports
 
 .. image:: https://coveralls.io/repos/github/cokelaer/reports/badge.svg?branch=master
     :target: https://coveralls.io/github/cokelaer/reports?branch=master 
