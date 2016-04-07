@@ -103,6 +103,13 @@ Please join https://github.com/cokelaer/reports
 
     references.rst
 
+Changelog
+=============
+
+.. toctree::
+
+    Changelog
+
 
 Indices and tables
 ==================
