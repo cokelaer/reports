@@ -8,7 +8,7 @@ import glob
 _MAJOR               = 0
 _MINOR               = 1
 _MICRO               = 1
-version              = '%d.%d.%d' % (_MAJOR, _MINOR, _MICRO)
+version              = '%d.%d.%d.1' % (_MAJOR, _MINOR, _MICRO)
 release              = '%d.%d' % (_MAJOR, _MINOR)
 
 metainfo = {
@@ -34,11 +34,6 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
-datadir = os.path.join('share','data')
-datafiles = [(d, [os.path.join(d,f) for f in files])
-    for d, folders, files in os.walk(datadir)]
-
-
 setup(
     name             = "reports",
     version          = version,
@@ -56,15 +51,12 @@ setup(
     classifiers      = metainfo['classifiers'],
 
     zip_safe=False,
-
     # package installation
-    package_dir = {'':'src'},
-    packages = ["reports"],
-    data_files = datafiles,
+    packages = ["reports", "reports.resources"],
+    include_package_data = True,
+    package_data = {"reports.resources": ['javascript/*', 'templates/generic/*', 'css/*']},
 
     install_requires = ["easydev", "pandas", "colormap", "jinja2"],
 
-    # uncomment if you have share/data files
 
-    #use_2to3 = True, # causes issue with nosetests
 )

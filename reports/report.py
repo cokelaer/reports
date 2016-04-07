@@ -103,9 +103,11 @@ class Report(object):
         # For jinja2 inheritance, we need to use the environment
         # to indicate where are the parents' templates
         if template_path  == "generic":
-            share_path = easydev.get_shared_directory_path('reports')
-            self.template_path = os.sep.join([share_path, 'data', 
-                'templates', "generic"])
+            thispath = easydev.get_package_location('reports')
+            thispath += os.sep + "reports"
+            thispath += os.sep + "resources"
+            self.template_path = os.sep.join([thispath, 'templates', "generic"])
+            print self.template_path
         else:
             self.template_path = template_path
 
@@ -165,10 +167,11 @@ class Report(object):
         except Exception:
             pass
         finally:
-            temp_path = easydev.get_shared_directory_path("reports")
+            temp_path = easydev.get_package_location("reports")
+            temp_path += os.sep + "reports" + os.sep + "resources"
 
             filenames = glob.glob(self.template_path + os.sep + "*css")
-            filenames += glob.glob(os.sep.join([temp_path, "data", "css", "*css"]))
+            filenames += glob.glob(os.sep.join([temp_path, "css", "*css"]))
 
             for filename in filenames:
                 target = os.sep.join([self.directory, 'css' ])
@@ -177,7 +180,7 @@ class Report(object):
             for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
-                    filename = easydev.get_share_file("reports", "data/javascript", filename)
+                    filename = os.sep.join([temp_path, "javascript", filename])
                     shutil.copy(filename, target)
 
     def to_html(self):
