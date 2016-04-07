@@ -107,7 +107,6 @@ class Report(object):
             thispath += os.sep + "reports"
             thispath += os.sep + "resources"
             self.template_path = os.sep.join([thispath, 'templates', "generic"])
-            print self.template_path
         else:
             self.template_path = template_path
 
