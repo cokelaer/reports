@@ -64,10 +64,14 @@ class Report(object):
 
     """
 
-    def __init__(self, template_path="generic",
-                filename='index.html', directory='report',
-                 overwrite=True, verbose=True, 
-                template_filename='index.html', css_path="generic"):
+    def __init__(self,
+                 template_path="generic",
+                 filename='index.html',
+                 directory='report',
+                 overwrite=True,
+                 verbose=True,
+                 template_filename='index.html',
+                 css_path="generic"):
         """.. rubric:: Constructor
 
 
@@ -98,8 +102,6 @@ class Report(object):
         #: flag to add dependencies
         self.add_dependencies = False
 
-        self.title = 'Title undefined'
-
         # For jinja2 inheritance, we need to use the environment
         # to indicate where are the parents' templates
         if template_path  == "generic":
@@ -111,6 +113,7 @@ class Report(object):
             self.template_path = template_path
 
         self.env = Environment()
+        print(self.template_path)
         self.env.loader = FileSystemLoader(self.template_path)
 
         # use template provided inside gdsctools
@@ -118,7 +121,7 @@ class Report(object):
 
         self.jinja = {
                 'time_now': self.get_time_now(),
-                "title": self.title,
+                "title": "Title to be defined",
                 'dependencies': self.get_table_dependencies().to_html(),
                 "report_version": _get_report_version()
                 }
