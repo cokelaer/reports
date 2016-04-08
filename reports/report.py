@@ -64,7 +64,7 @@ class Report(object):
     """
 
     def __init__(self,
-                 template_path="generic",
+                 searchpath=None,
                  filename='index.html',
                  directory='report',
                  overwrite=True,
@@ -74,20 +74,15 @@ class Report(object):
         """.. rubric:: Constructor
 
 
-        :param template_path: where to find the templates. If not provided, uses
-            the generic version
+        :param searchpath: where to find the jina templates. 
+            If not provided, uses the generic template
         :param filename: output filename (default to **index.html**)
         :param directory: defaults to **report**
         :param overwrite: default to True
         :param verbose: default to True
-        :param dependencies: add the dependencies table at the end of the
-            document if True.
         :param template_filename: entry point of the jinja code
-        :param template_path: where to find the templates. If not provided, uses
-            the generic version
+        :param extra_css_list: where to find the extra css 
 
-        a template directory should contain a set of jinja files including
-        *template_filename*. 
         """
         self.verbose = verbose
         self._directory = directory
@@ -103,19 +98,20 @@ class Report(object):
 
         # For jinja2 inheritance, we need to use the environment
         # to indicate where are the parents' templates
-        if template_path  == "generic":
+        if searchpath  is None:
             thispath = easydev.get_package_location('reports')
             thispath += os.sep + "reports"
             thispath += os.sep + "resources"
-            self.template_path = os.sep.join([thispath, 'templates', "generic"])
+            self.searchpath = os.sep.join([thispath, 'templates', "generic"])
         else:
             # path to the template provided by the user 
-            self.template_path = template_path
+            self.searchpath = searchpath
 
         # The JINJA environment
         # TODO check that the path exists
         self.env = Environment()
-        self.env.loader = FileSystemLoader(self.template_path)
+        self.env.loader = FileSystemLoader(self.searchpath)
+
 
         # input template file 
         self.template = self.env.get_template(template_filename)
@@ -178,11 +174,8 @@ class Report(object):
             temp_path = easydev.get_package_location("reports")
             temp_path += os.sep + "reports" + os.sep + "resources"
 
-            # and the CSS to be found in the template_path where to find the
-            # JINJA files
-            filenames = glob.glob(self.template_path + os.sep + "*css")
             # Copy the CSS from reports/resources/css
-            filenames += glob.glob(os.sep.join([temp_path, "css", "*css"]))
+            filenames = glob.glob(os.sep.join([temp_path, "css", "*css"]))
             # In addition, the user may also provide his own CSS as a list
             filenames += self.extra_css_list
 
