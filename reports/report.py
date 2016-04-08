@@ -227,14 +227,14 @@ class Report(object):
         msg += " by " + username +'</div>'
         return msg
 
-    def get_table_dependencies(self):
+    def get_table_dependencies(self, package="reports"):
         """Returns dependencies of the pipeline as an HTML/XML table
 
         The dependencies are the python dependencies as returned by
         pkg_resource module.
 
         """
-        dependencies = easydev.get_dependencies("reports")
+        dependencies = easydev.get_dependencies(package)
         # TODO: Could re-use new method in HTMLTable for adding href
         # but needs some extra work in the add_href method.
         names = [x.project_name for x in dependencies]

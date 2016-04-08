@@ -1,6 +1,8 @@
 changelog
 ===============
 
+:version 0.1.5: get_dependencies now accept an input package argument (defaults
+    to reports)
 
 :version 0.1.4: HTMLTable sorting is confused with the content of scientific
     notation that are used as characters. The user should change te dataframe
