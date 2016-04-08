@@ -169,9 +169,15 @@ sorttable = {
     for (var i=0; i<table.tBodies[0].rows.length; i++) {
       text = sorttable.getInnerText(table.tBodies[0].rows[i].cells[column]);
       if (text != '') {
-        if (text.match(/^-?[£$¤]?[\d,.]+%?$/)) {
+
+        if (text.match(/(^-?[£$¤]?[\d,.]+%?)$/)) {
           return sorttable.sort_numeric;
         }
+
+        if (text.match(/[+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?/)) {
+          return sorttable.sort_numeric;
+        }
+
         // check for a date: dd/mm/yyyy or dd/mm/yy
         // can have / or . or - as separator
         // can be mm/dd as well
@@ -257,13 +263,19 @@ sorttable = {
 
   /* sort functions
      each sort function takes two parameters, a and b
-     you are comparing a[0] and b[0] */
+     you are comparing a[0] and b[0] 
+
+    TC changes 2016:
+        1 - Add Ee in the regular expression for scientific notation
+        2 -  
+    */
   sort_numeric: function(a,b) {
-    aa = parseFloat(a[0].replace(/[^0-9.-]/g,''));
+    aa = parseFloat(a[0].replace(/[^0-9Ee.-]/g,''));
     if (isNaN(aa)) aa = 0;
-    bb = parseFloat(b[0].replace(/[^0-9.-]/g,''));
+    bb = parseFloat(b[0].replace(/[^0-9Ee.-]/g,''));
     if (isNaN(bb)) bb = 0;
-    return aa-bb;
+    //return aa.toFixed(9) - bb.toFixed(9);
+    return aa - bb;
   },
   sort_alpha: function(a,b) {
     if (a[0]==b[0]) return 0;

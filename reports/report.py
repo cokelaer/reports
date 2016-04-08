@@ -112,7 +112,6 @@ class Report(object):
         self.env = Environment()
         self.env.loader = FileSystemLoader(self.searchpath)
 
-
         # input template file 
         self.template = self.env.get_template(template_filename)
 
@@ -175,7 +174,13 @@ class Report(object):
             temp_path += os.sep + "reports" + os.sep + "resources"
 
             # Copy the CSS from reports/resources/css
-            filenames = glob.glob(os.sep.join([temp_path, "css", "*css"]))
+            filenames = glob.glob(os.sep.join([temp_path, "css", "*.css"]))
+
+            # If there are CSS in the directory with JINJA templates, use them
+            # as well
+            filenames += glob.glob(os.sep.join([self.searchpath, '*.css']))
+
+
             # In addition, the user may also provide his own CSS as a list
             filenames += self.extra_css_list
 

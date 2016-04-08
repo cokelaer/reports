@@ -1,6 +1,15 @@
 changelog
 ===============
 
+
+:version 0.1.4: HTMLTable sorting is confused with the content of scientific
+    notation that are used as characters. The user should change te dataframe
+    types but we change the type is we can from object to float.
+
+    Second fix is related to CSS. We were already including CSS from reports/resources/css, 
+    from a list of user-defined CSS. We now also include CSS found in the JINJA
+    searchpath provided by the user.
+
 :version 0.1.3:
 
 * change css_path into   extra_css_list parameter
