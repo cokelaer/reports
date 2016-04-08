@@ -4,6 +4,7 @@ changelog
 :version 0.1.3:
 
 * change css_path into   extra_css_list parameter
+* change parameter names to allow to get all set of jinja files instead of just one.
 
 
 :version 0.1.2:
