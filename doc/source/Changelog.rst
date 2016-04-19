@@ -1,6 +1,8 @@
 changelog
 ===============
 
+:version 0.1.6: extra js can now be added (similarly to the CSS)
+
 :version 0.1.5: get_dependencies now accept an input package argument (defaults
     to reports)
 
