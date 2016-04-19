@@ -70,7 +70,8 @@ class Report(object):
                  overwrite=True,
                  verbose=True,
                  template_filename='index.html',
-                 extra_css_list=[]):
+                 extra_css_list=[],
+                 extra_js_list=[]):
         """.. rubric:: Constructor
 
 
@@ -82,12 +83,14 @@ class Report(object):
         :param verbose: default to True
         :param template_filename: entry point of the jinja code
         :param extra_css_list: where to find the extra css 
+        :param extra_js_list: where to find the extra css 
 
         """
         self.verbose = verbose
         self._directory = directory
         self._filename = filename
         self.extra_css_list = extra_css_list
+        self.extra_js_list = extra_css_list
 
         # This contains the sections and their names
         self.sections = []
@@ -183,13 +186,13 @@ class Report(object):
 
             # In addition, the user may also provide his own CSS as a list
             filenames += self.extra_css_list
-
             for filename in filenames:
                 target = os.sep.join([self.directory, 'css' ])
                 if os.path.isfile(target) is False:
                     shutil.copy(filename, target)
 
             # We copy all javascript from reports resources
+            filenames += self.extra_js_list
             for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
