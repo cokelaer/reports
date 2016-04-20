@@ -90,7 +90,7 @@ class Report(object):
         self._directory = directory
         self._filename = filename
         self.extra_css_list = extra_css_list
-        self.extra_js_list = extra_css_list
+        self.extra_js_list = extra_js_list
 
         # This contains the sections and their names
         self.sections = []
@@ -192,11 +192,14 @@ class Report(object):
                     shutil.copy(filename, target)
 
             # We copy all javascript from reports resources
-            filenames += self.extra_js_list
             for filename in ['sorttable.js', 'highlight.pack.js', "jquery-1.12.3.min.js"]:
                 target = os.sep.join([self.directory, 'js', filename ])
                 if os.path.isfile(target) is False:
                     filename = os.sep.join([temp_path, "javascript", filename])
+                    shutil.copy(filename, target)
+            for filename in self.extra_js_list:
+                target = os.sep.join([self.directory, 'js', filename ])
+                if os.path.isfile(target) is False:
                     shutil.copy(filename, target)
 
     def to_html(self):
