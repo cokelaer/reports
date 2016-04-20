@@ -198,7 +198,8 @@ class Report(object):
                     filename = os.sep.join([temp_path, "javascript", filename])
                     shutil.copy(filename, target)
             for filename in self.extra_js_list:
-                target = os.sep.join([self.directory, 'js', filename ])
+                basename = os.path.basename(filename)
+                target = os.sep.join([self.directory, 'js', basename ])
                 if os.path.isfile(target) is False:
                     shutil.copy(filename, target)
 
