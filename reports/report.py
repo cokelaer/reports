@@ -71,7 +71,8 @@ class Report(object):
                  verbose=True,
                  template_filename='index.html',
                  extra_css_list=[],
-                 extra_js_list=[]):
+                 extra_js_list=[],
+                init_report=True):
         """.. rubric:: Constructor
 
 
@@ -84,6 +85,8 @@ class Report(object):
         :param template_filename: entry point of the jinja code
         :param extra_css_list: where to find the extra css 
         :param extra_js_list: where to find the extra css 
+        :param bool init_report: init the report that is create 
+            the directories to store css and JS.
 
         """
         self.verbose = verbose
@@ -93,6 +96,7 @@ class Report(object):
         self.extra_js_list = extra_js_list
 
         # This contains the sections and their names
+        # Not used yet but could be in jinja templating
         self.sections = []
         self.section_names = []
 
@@ -129,8 +133,9 @@ class Report(object):
         # Directories to create 
         self._to_create = ['images', 'css', 'js',]
 
-        # Create directories and stored csss/js/images
-        self._init_report()
+        # Create directories and stored css/js/images
+        if init_report:
+            self._init_report()
 
     def _get_filename(self):
         return self._filename

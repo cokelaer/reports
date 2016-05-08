@@ -1,7 +1,7 @@
 changelog
 ===============
 
-
+:version 0.1.9: Add new option to not create the sub directories (css/js...)
 :version 0.1.8: fix another bug/typo in js_list
 :version 0.1.7: fix bug/typo in js_list
 :version 0.1.6: extra js can now be added (similarly to the CSS)
