@@ -73,7 +73,7 @@ class HTMLTable(object):
                 'precision': 2}
 
     def to_html(self, index=False, escape=False, header=True,
-            collapse_table=True, **kargs):
+            collapse_table=True, class_outer="table_outer", **kargs):
         """Return HTML version of the table
 
         This is a wrapper of the to_html method of the pandas dataframe.
@@ -103,10 +103,9 @@ class HTMLTable(object):
         for k, v in _buffer.items():
             pd.set_option(k, v)
 
-        if len(self.df) > 20 and collapse_table is True:
-            return '<div class="table_outer">' + table+"</div>"
-        else:
-            return '<div class="table">' + table+"</div>"
+        # We wrap the table in a dedicated class/div nammed table_scroller
+        # that users must define.
+        return '<div class="%s">' % class_outer + table+"</div>"
 
     def add_bgcolor(self, colname, cmap='copper', mode='absmax',
             threshold=2):
