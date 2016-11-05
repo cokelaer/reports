@@ -1,6 +1,8 @@
 changelog
 ===============
 
+
+:version 0.2.1: Fix warnings due to division by zero; add some tests
 :version 0.2.0: outer class of the table is always used (no check of a minimal size)
 :version 0.1.9: Add new option to not create the sub directories (css/js...)
 :version 0.1.8: fix another bug/typo in js_list

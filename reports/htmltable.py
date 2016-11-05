@@ -135,7 +135,7 @@ class HTMLTable(object):
 
         """
         try:
-            # if no cmap provided, it may be just a known cmap name
+            # if a cmap is provided, it may be just a known cmap name
             cmap = cmap_builder(cmap)
         except:
             pass
@@ -144,15 +144,18 @@ class HTMLTable(object):
 
         if len(data) == 0:
             return
+
         if mode == 'clip':
             data = [min(x, threshold)/float(threshold) for x in data]
         elif mode == 'absmax':
             m = abs(data.min())
             M = abs(data.max())
             M = max([m, M])
-            data = (data / M + 1)/2.
+            if M != 0:
+                data = (data / M + 1)/2.
         elif mode == 'max':
-            data = data / float(data.max())
+            if data.max() != 0:
+                data = data / float(data.max())
 
         # the expected RGB values for a given data point
         rgbcolors = [cmap(x)[0:3] for x in data]
