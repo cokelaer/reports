@@ -1,7 +1,8 @@
 changelog
 ===============
 
-
+:version 0.3.0: Fix call to easydev.precision for the case where data contains
+    infinite/nan values
 :version 0.2.1: Fix warnings due to division by zero; add some tests
 :version 0.2.0: outer class of the table is always used (no check of a minimal size)
 :version 0.1.9: Add new option to not create the sub directories (css/js...)
@@ -24,7 +25,6 @@ changelog
 
 * change css_path into   extra_css_list parameter
 * change parameter names to allow to get all set of jinja files instead of just one.
-
 
 :version 0.1.2:
 

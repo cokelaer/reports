@@ -6,8 +6,8 @@ from setuptools import setup, find_packages
 import glob
 
 _MAJOR               = 0
-_MINOR               = 2
-_MICRO               = 1
+_MINOR               = 3
+_MICRO               = 0
 version              = '%d.%d.%d' % (_MAJOR, _MINOR, _MICRO)
 release              = '%d.%d' % (_MAJOR, _MINOR)
 
@@ -34,6 +34,7 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
+
 setup(
     name             = "reports",
     version          = version,
@@ -57,6 +58,4 @@ setup(
     package_data = {"reports.resources": ['javascript/*', 'templates/generic/*', 'css/*']},
 
     install_requires = ["easydev", "pandas", "colormap", "jinja2"],
-
-
 )

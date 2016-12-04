@@ -17,9 +17,8 @@ Reports documentation
     :alt: Documentation Status
 
 :Python version: Python 2.7, 3.4 and 3.5
-:Online documentation: `On readthedocs <http://reports.readthedocs.org/>`_
-:Issues and bug reports: `On github
-<https://github.com/cokelaer/reports/issues>`_
+:documentation: `On readthedocs <http://reports.readthedocs.org/>`_
+:Issues: Please fill form on `On github <https://github.com/cokelaer/reports/issues>`_
 
 
 
@@ -38,7 +37,8 @@ We provide a simple JINJA example (stored with the pacakge in
 ./share/data/templates/generic directory) and we let the users design their own
 templates.
 
-This is used in GDSCTools and Sequoia packages
+This is used in `GDSCTools <http://gdsctools.readthedocs.org>`_ and 
+`Sequana <http://sequana.readthedocs.org>`_ packages.
 
 
 

@@ -165,8 +165,16 @@ class HTMLTable(object):
         data = self.df[colname].values
         # need to set precision since this is going to be a text not a number
         # so pandas will not use the precision for those cases:
-        data = [easydev.precision(x, self.pd_options['precision'])
-                for x in data]
+
+        def prec(x):
+            try:
+                # this may fail if for instance x is nan or inf
+                x = easydev.precision(x, self.pd_options['precision'])
+                return x
+            except:
+                return x
+
+        data = [prec(x) for x in data]
         html_formatter = '<p style="background-color:{0}">{1}</p>'
         self.df[colname] = [html_formatter.format(x, y)
                 for x, y in zip(hexcolors, data)]
