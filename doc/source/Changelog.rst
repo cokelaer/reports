@@ -1,6 +1,7 @@
 changelog
 ===============
 
+:version 0.3.1: Fix License and RTD 
 :version 0.3.0: Fix call to easydev.precision for the case where data contains
     infinite/nan values
 :version 0.2.1: Fix warnings due to division by zero; add some tests
