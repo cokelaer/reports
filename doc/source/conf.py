@@ -12,6 +12,10 @@
 # serve to show the default.
 
 import sys, os
+import sphinx
+
+sys.path.insert(0, os.path.abspath('sphinxext'))
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -31,6 +35,8 @@ import easydev
 from easydev import get_path_sphinx_themes
 
 
+# common sphinx extensions
+
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -41,18 +47,25 @@ from easydev import get_path_sphinx_themes
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
+
+    ('sphinx.ext.imgmath'  # only available for sphinx >= 1.4
+                  if sphinx.version_info[:2] >= (1, 4)
+                  else 'sphinx.ext.pngmath'),
     'sphinx.ext.coverage',
-    'sphinx.ext.graphviz',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosummary',
     'sphinx.ext.todo',
-    'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'easydev.copybutton',
-    'sphinx.ext.pngmath',
-    ]
+    'easydev.copybutton']
+
+try:
+    import sphinxcontrib.spelling
+    extensions.append('sphinxcontrib.spelling')
+except:
+    pass
+
 # note that the numpy directives is buggy. Example: class and init are not recognised as two entities for the autoclass_content=both here below
 
 
@@ -224,8 +237,6 @@ htmlhelp_basename = 'doc'
 # NOT in original quickstart
 pngmath_use_preview = True
 
-# The paper size ('letter' or 'a4').
-latex_paper_size = 'a4'
 
 # The font size ('10pt', '11pt' or '12pt').
 latex_font_size = '10pt'
@@ -254,7 +265,7 @@ latex_use_parts = False
 #latex_show_urls = False
 
 # Additional stuff for the LaTeX preamble.
-latex_preamble =r"""
+latex_elements['preamble'] =r"""
 \definecolor{VerbatimColor}{rgb}{.9,1,0.9}
 \definecolor{VerbatimBorderColor}{rgb}{0,0,0}
 
@@ -280,6 +291,7 @@ latex_preamble =r"""
 
 """
 
+latex_elements['paper_size'] = 'a4'
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
 

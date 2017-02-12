@@ -25,7 +25,7 @@ install:
   #- conda install --yes -c python-coveralls nose-cov
   - pip install nose easydev --upgrade
   - pip install coveralls -v
-  - pip install colormap 
+  - pip install colormap
 
 # # command to run tests, e.g. python setup.py test
 script:
