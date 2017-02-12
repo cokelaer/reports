@@ -1,0 +1,4 @@
+easydev
+pandas
+colormap
+jinja2
