@@ -14,7 +14,7 @@ release              = '%d.%d' % (_MAJOR, _MINOR)
 metainfo = {
     'authors': {"main": ("Thomas Cokelaer", "cokelaer@gmail.com")},
     'version': version,
-    'license' : 'LGPL',
+    'license' : 'BSD3',
     'download_url' : ['http://pypi.python.org/pypi/reports'],
     'url' : ["http://github.com/cokelaer/reports/"],
     'description': "Quickly create HTML reports using a set of JINJA templates" ,
@@ -24,7 +24,7 @@ metainfo = {
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
           'Intended Audience :: Science/Research',
-          'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
+          'License :: OSI Approved :: BSD License',
           'Operating System :: OS Independent',
           'Programming Language :: Python :: 2.7',
           'Topic :: Software Development :: Libraries :: Python Modules',
