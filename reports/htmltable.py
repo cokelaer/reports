@@ -69,7 +69,7 @@ class HTMLTable(object):
         self.df = df.copy() # because we will change its contents possibly
         self.name = name
         self.pd_options = {
-                'max_colwidth': -1,
+                'max_colwidth': None,
                 'precision': 2}
 
     def to_html(self, index=False, escape=False, header=True,

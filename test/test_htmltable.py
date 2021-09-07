@@ -21,7 +21,7 @@ def test_htmltable():
     table = HTMLTable(df)
     table.to_html()
 
-    #  test add_bgcolor on empty datra
+    #  test add_bgcolor on empty data
     df = pd.DataFrame({'A':[]})
     table = HTMLTable(df)
     table.add_bgcolor('A')
@@ -31,7 +31,7 @@ def test_htmltable():
     df = pd.DataFrame({'A':[1]})
     html = HTMLTable(df)
     html.add_href("A", url="test")
-    assert html.df.ix[0].values[0] == '<a  alt="1" href="test1">1</a>'
+    assert html.df.iloc[0].values[0] == '<a  alt="1" href="test1">1</a>'
 
     #  test url / newtab
     df = pd.DataFrame({'A':[1]})
@@ -53,6 +53,6 @@ def test_clip():
     df = pd.DataFrame({"A":[1,2,3,4]})
     html = HTMLTable(df)
     html.add_bgcolor("A", mode="clip", threshold=2)
-    assert "FFC77E" in html.df.ix[2].values[0]
-    assert "FFC77E" in html.df.ix[3].values[0]
+    assert "FFC77E" in html.df.iloc[2].values[0]
+    assert "FFC77E" in html.df.iloc[3].values[0]
 

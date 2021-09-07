@@ -291,7 +291,6 @@ latex_elements['preamble'] =r"""
 
 """
 
-latex_elements['paper_size'] = 'a4'
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
 
