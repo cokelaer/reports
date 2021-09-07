@@ -44,10 +44,22 @@ def test_htmltable():
     html.add_href("A", newtab=True)
 
 def test_wrong_cmap():
+    df = pd.DataFrame({'A':[1]})
+    table = HTMLTable(df)
+    try:
+        table.add_bgcolor('A', cmap='dummy')
+        assert false
+    except:
+        assert True
+
+    # empty table should return normally
     df = pd.DataFrame({'A':[]})
     table = HTMLTable(df)
-    table.add_bgcolor('A', cmap='dummy')
-
+    try:
+        table.add_bgcolor('A', cmap='dummy')
+        assert True
+    except:
+        assert False
 
 def test_clip():
     df = pd.DataFrame({"A":[1,2,3,4]})

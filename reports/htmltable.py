@@ -137,7 +137,7 @@ class HTMLTable(object):
         try:
             # if a cmap is provided, it may be just a known cmap name
             cmap = cmap_builder(cmap)
-        except:
+        except ValueError:
             pass
 
         data = self.df[colname].values
