@@ -138,7 +138,7 @@ class HTMLTable(object):
             # if a cmap is provided, it may be just a known cmap name
             cmap = cmap_builder(cmap)
         except ValueError as err:
-            print(err)
+            raise(err)
 
         data = self.df[colname].values
 
