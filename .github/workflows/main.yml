@@ -25,6 +25,7 @@ jobs:
 
     - name: Install the package itself
       run: |
+          echo requirements.txt
           pip install .
 
     - name: Install packages for testing
