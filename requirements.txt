@@ -1,4 +1,5 @@
 easydev
 pandas
 colormap
+matplotlib
 jinja2
