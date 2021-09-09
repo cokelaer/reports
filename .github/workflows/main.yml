@@ -25,9 +25,7 @@ jobs:
 
     - name: Install the package itself
       run: |
-          cat requirements.txt
           pip install .
-          pip install matplotlib
 
     - name: Install packages for testing
       run: |

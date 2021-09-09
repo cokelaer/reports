@@ -36,6 +36,8 @@ metainfo = {
           'Topic :: Scientific/Engineering :: Physics']
     }
 
+requirements = open("requirements.txt").read().split()
+
 
 setup(
     name             = "reports",
@@ -59,5 +61,5 @@ setup(
     include_package_data = True,
     package_data = {"reports.resources": ['javascript/*', 'templates/generic/*', 'css/*']},
 
-    install_requires = ["easydev", "pandas", "colormap", "jinja2"],
+    install_requires = requirements,
 )
