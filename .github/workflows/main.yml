@@ -26,6 +26,8 @@ jobs:
     - name: Install the package itself
       run: |
           pip install .
+          # for the test to work (colormap needs pyqt backend on the CI action)
+          pip install PyQt5  
 
     - name: Install packages for testing
       run: |

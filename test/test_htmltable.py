@@ -57,9 +57,9 @@ def test_wrong_cmap():
     table = HTMLTable(df)
     try:
         table.add_bgcolor('A', cmap='dummy')
-        assert True
-    except:
         assert False
+    except:
+        assert True
 
 def test_clip():
     df = pd.DataFrame({"A":[1,2,3,4]})
