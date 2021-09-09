@@ -14,7 +14,7 @@ REPORTS
     :target: http://reports.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
-:Python version: Python 2.7, 3.4 and 3.5
+:Python version: Python 3.7, 3.8, 3.9
 :Online documentation: `On readthedocs <http://reports.readthedocs.org/>`_
 :Issues and bug reports: `On github <https://github.com/cokelaer/reports/issues>`_
 

@@ -1,4 +1,4 @@
-include README.rst setup.cfg LICENSE
+include README.rst setup.cfg LICENSE requirements*txt
 recursive-include doc *
 recursive-include reports/resources *
 recursive-exclude doc/build *
